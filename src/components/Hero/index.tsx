@@ -1,4 +1,5 @@
 import CustomButton from "../CustomButton";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
@@ -13,7 +14,11 @@ const Hero = () => {
         <CustomButton title="Arabaları Keşfet" designs="mt-10" />
       </div>
       <div className="w-100 flex justify-center">
-        <img
+        {/* Framer-motion kütüphanesi ekledik animasyon için */}
+        <motion.img
+          initial={{ translateX: 200, scale: 0.7 }}
+          whileInView={{ translateX: 0, scale: 1 }}
+          transition={{ duration: 1 }}
           src="./../../../public/hero.png"
           alt=""
           width={700}
