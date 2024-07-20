@@ -28,7 +28,11 @@ const MainPage = () => {
           </div>
         ) : (
           <section>
-            <Card />
+            <div className="home__cars-wrapper">
+              <Card />
+              <Card />
+              <Card />
+            </div>
           </section>
         )}
       </div>
