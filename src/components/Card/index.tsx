@@ -1,7 +1,9 @@
+import { useState } from "react";
 import CustomButton from "../CustomButton";
 import CardInfo from "./CardInfo";
 import { motion } from "framer-motion";
 const Card = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <motion.div
       initial={{ scale: 0.5, opacity: 0 }}
@@ -37,6 +39,7 @@ const Card = () => {
             title="Daha Fazla"
             designs="w-full py-[16px]"
             rIcon="/public/right-arrow.svg"
+            handleClick={() => setIsOpen(true)}
           />
         </div>
       </div>

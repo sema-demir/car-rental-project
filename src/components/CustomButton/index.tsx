@@ -1,6 +1,12 @@
 import { ButtonProps } from "../../types";
 
-const CustomButton = ({ title, btnType, designs, rIcon }: ButtonProps) => {
+const CustomButton = ({
+  title,
+  btnType,
+  designs,
+  rIcon,
+  handleClick,
+}: ButtonProps) => {
   return (
     <button
       type={btnType || "button"}
