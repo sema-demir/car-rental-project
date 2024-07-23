@@ -2,8 +2,9 @@ import { useState } from "react";
 import CustomButton from "../CustomButton";
 import CardInfo from "./CardInfo";
 import { motion } from "framer-motion";
+import DetailModel from "./DetailModel";
 const Card = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   return (
     <motion.div
       initial={{ scale: 0.5, opacity: 0 }}
@@ -43,6 +44,7 @@ const Card = () => {
           />
         </div>
       </div>
+      <DetailModel isOpen={isOpen} closeModel={() => setIsOpen(false)} />
     </motion.div>
   );
 };

@@ -9,6 +9,7 @@ const CustomButton = ({
 }: ButtonProps) => {
   return (
     <button
+      onClick={handleClick}
       type={btnType || "button"}
       className={`custom-btn bg-[#2B59FF] rounded-full hover:bg-blue-800 transition text-white ${designs}`}
     >
