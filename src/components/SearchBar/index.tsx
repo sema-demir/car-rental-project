@@ -1,4 +1,6 @@
 import ReactSelect from "react-select";
+import React, { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 type ButtonProps = {
   styling: string;
 };
@@ -12,11 +14,28 @@ const SearchButton = ({ styling }: ButtonProps) => {
 };
 
 const SearchBar = () => {
-  const handleSubmit = () => {};
+  const [make, setMake] = useState<string>("");
+  const [model, setModel] = useState<string>("");
+
+  const [params, setParams] = useSearchParams();
+  console.log(params);
+  // Eventlarda paramaetrelerin tipini kendimiz tanımlayamayız Reactın kendi içerisinden gelen tipleri kullanırız
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setParams({
+      make: make.toLowerCase(),
+      model: model.toLowerCase(),
+    });
+  };
+
   return (
     <form className="searchbar gap-3" onSubmit={handleSubmit}>
       <div className="searchbar__item">
-        <ReactSelect className="w-full" />
+        <ReactSelect
+          className="w-full"
+          onChange={(e) => e && setMake(e.value)}
+        />
         <SearchButton styling={"sm:hidden"} />
       </div>
       <div className="searchbar__item">

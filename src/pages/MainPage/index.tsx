@@ -3,6 +3,7 @@ import CustomFilter from "../../components/CustomFilter";
 import Hero from "../../components/Hero";
 import SearchBar from "../../components/SearchBar";
 import Card from "../../components/Card";
+import { fuels, years } from "../../constants";
 
 const MainPage = () => {
   const [cars, setCars] = useState([1]);
@@ -18,8 +19,8 @@ const MainPage = () => {
         <div className="home__filters ">
           <SearchBar />
           <div className="home__filter-container">
-            <CustomFilter title="Yakıt Tipi" />
-            <CustomFilter title="Yıl" />
+            <CustomFilter title="Yakıt Tipi" options={fuels} />
+            <CustomFilter title="Yıl" options={years} />
           </div>
         </div>
         {!cars || cars.length < 1 ? (
