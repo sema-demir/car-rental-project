@@ -4,7 +4,7 @@ import CardInfo from "./CardInfo";
 import { motion } from "framer-motion";
 import DetailModel from "./DetailModel";
 const Card = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <motion.div
       initial={{ scale: 0.5, opacity: 0 }}
