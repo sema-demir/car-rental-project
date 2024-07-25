@@ -4,9 +4,11 @@ import Hero from "../../components/Hero";
 import SearchBar from "../../components/SearchBar";
 import Card from "../../components/Card";
 import { fuels, years } from "../../constants";
+import { useSearchParams } from "react-router-dom";
 
 const MainPage = () => {
   const [cars, setCars] = useState([1]);
+  const [params, setParams] = useSearchParams();
   return (
     <div>
       <Hero />
