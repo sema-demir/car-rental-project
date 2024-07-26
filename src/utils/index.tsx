@@ -6,5 +6,16 @@ const options = {
   },
 };
 export async function fetchCars(filters) {
-  fetch(`https://cars-by-api-ninjas.p.rapidapi.com/v1/cars`);
+  const {
+    make = "bmv",
+    model = "",
+    limit = "",
+    year = "",
+    fuel = "",
+  } = filters;
+  const res = await fetch(
+    `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${make}&model=${model}&fuel_type=${fuel}&year=${year}&limit=${limit}`,
+    options
+  );
+  console.log(res.json());
 }
