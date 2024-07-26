@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CustomFilter from "../../components/CustomFilter";
 import Hero from "../../components/Hero";
 import SearchBar from "../../components/SearchBar";
@@ -9,6 +9,11 @@ import { useSearchParams } from "react-router-dom";
 const MainPage = () => {
   const [cars, setCars] = useState([1]);
   const [params, setParams] = useSearchParams();
+
+  useEffect(() => {
+    //bir obje içindeki değerleri anahtar değer cifti seklinde bir nesne olusturur.
+    const paramsObj = Object.fromEntries(params.entries());
+  }, [params]);
   return (
     <div>
       <Hero />
