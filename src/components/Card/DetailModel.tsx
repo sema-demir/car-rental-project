@@ -1,8 +1,14 @@
+import { CarType } from "../../types";
+
 type DetailProps = {
   isOpen: boolean;
   closeModel: () => void;
+  car: CarType;
 };
-const DetailModel = ({ isOpen, closeModel }: DetailProps) => {
+const DetailModel = ({ isOpen, closeModel, car }: DetailProps) => {
+  {
+    Object.entries(car).map((item) => console.log(item));
+  }
   return (
     <div>
       {isOpen && (
@@ -46,18 +52,7 @@ const DetailModel = ({ isOpen, closeModel }: DetailProps) => {
               </div>
             </div>
             {/* Araba Bilgileri */}
-            <div className=" flex justify-between">
-              <h4 className="capitalize text-gray">City Mpg</h4>
-              <p className="text-black-100 font-semibold ">14</p>
-            </div>
-            <div className=" flex justify-between">
-              <h4 className="capitalize text-gray">City Mpg</h4>
-              <p className="text-black-100 font-semibold ">14</p>
-            </div>
-            <div className=" flex justify-between">
-              <h4 className="capitalize text-gray">City Mpg</h4>
-              <p className="text-black-100 font-semibold ">14</p>
-            </div>
+            {Object.entries(car).map((item) => console.log(item))}
           </div>
         </div>
       )}

@@ -5,14 +5,17 @@ import SearchBar from "../../components/SearchBar";
 import Card from "../../components/Card";
 import { fuels, years } from "../../constants";
 import { useSearchParams } from "react-router-dom";
+import { fetchCars } from "../../utils";
+import { CarType } from "../../types";
 
 const MainPage = () => {
-  const [cars, setCars] = useState([1]);
+  const [cars, setCars] = useState<CarType[]>([]);
   const [params, setParams] = useSearchParams();
 
   useEffect(() => {
-    //bir obje içindeki değerleri anahtar değer cifti seklinde bir nesne olusturur.
+    //bir obje içindeki değerleri anahtar-değer cifti seklinde bir nesne olusturur.
     const paramsObj = Object.fromEntries(params.entries());
+    fetchCars(paramsObj).then((res: CarType) => setCars(res));
   }, [params]);
   return (
     <div>
@@ -37,9 +40,9 @@ const MainPage = () => {
         ) : (
           <section>
             <div className="home__cars-wrapper">
-              <Card />
-              <Card />
-              <Card />
+              {cars.map((car, i) => (
+                <Card car={car} key={i} />
+              ))}
             </div>
           </section>
         )}

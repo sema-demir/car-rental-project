@@ -3,7 +3,12 @@ import CustomButton from "../CustomButton";
 import CardInfo from "./CardInfo";
 import { motion } from "framer-motion";
 import DetailModel from "./DetailModel";
-const Card = () => {
+import { CarType } from "../../types";
+
+type CardProps = {
+  car: CarType;
+};
+const Card = ({ car }: CardProps) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <motion.div
@@ -13,7 +18,9 @@ const Card = () => {
       className="car-card group"
     >
       {/* arabanın ismi */}
-      <h2 className="car-card__content-title">bmw</h2>
+      <h2 className="car-card__content-title">
+        {car.make} {car.model}
+      </h2>
       {/* fiyat alanı */}
       <p className="flex mt-6 text-[32px]">
         <span className="text-[19px] font-semibold">₺</span>
@@ -44,7 +51,11 @@ const Card = () => {
           />
         </div>
       </div>
-      <DetailModel isOpen={isOpen} closeModel={() => setIsOpen(false)} />
+      <DetailModel
+        car={car}
+        isOpen={isOpen}
+        closeModel={() => setIsOpen(false)}
+      />
     </motion.div>
   );
 };

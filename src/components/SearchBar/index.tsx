@@ -39,8 +39,7 @@ const SearchBar = () => {
       })),
     [make]
   );
-  console.log(make);
-  console.log(model);
+
   return (
     <form className="searchbar gap-3" onSubmit={handleSubmit}>
       <div className="searchbar__item text-black">

@@ -1,3 +1,5 @@
+import { filterType } from "../types";
+
 const options = {
   method: "GET",
   headers: {
@@ -5,7 +7,7 @@ const options = {
     "x-rapidapi-host": "cars-by-api-ninjas.p.rapidapi.com",
   },
 };
-export async function fetchCars(filters) {
+export async function fetchCars(filters: filterType) {
   const {
     make = "bmv",
     model = "",
@@ -17,5 +19,5 @@ export async function fetchCars(filters) {
     `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${make}&model=${model}&fuel_type=${fuel}&year=${year}&limit=${limit}`,
     options
   );
-  console.log(res.json());
+  return await res.json();
 }
