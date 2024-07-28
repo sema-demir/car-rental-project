@@ -1,4 +1,6 @@
+import { AnimatePresence, motion } from "framer-motion";
 import { CarType } from "../../types";
+import { generateImage } from "../../utils";
 
 type DetailProps = {
   isOpen: boolean;
@@ -6,13 +8,15 @@ type DetailProps = {
   car: CarType;
 };
 const DetailModel = ({ isOpen, closeModel, car }: DetailProps) => {
-  {
-    Object.entries(car).map((item) => console.log(item));
-  }
   return (
-    <div>
+    <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 bg-black flex items-center justify-center z-20 p-4 bg-opacity-25">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.4 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.5 }}
+          className="fixed inset-0 bg-black flex items-center justify-center z-20 p-4 bg-opacity-25"
+        >
           <div className="p-6  bg-white max-w-lg w-full rounded-2xl flex flex-col gap-5 shadow-xl overflow-auto relative max-h-[90vh]">
             {/* Kpatma Butonu */}
             <button
@@ -24,27 +28,31 @@ const DetailModel = ({ isOpen, closeModel, car }: DetailProps) => {
             {/* Resimler */}
             <div className="flex-1 flex flex-col gap-3">
               <div className="w-full relative h-40 bg-pattern bg-cover bg-center rounded-lg">
-                <img src="/public/hero.png" alt="" className="h-full mx-auto" />
+                <img
+                  src={generateImage(car)}
+                  alt=""
+                  className="h-full mx-auto"
+                />
               </div>
               {/* küçük resimler  */}
               <div className="flex gap-3">
                 <div className="flex-1 flex relative w-full h-24 bg-primary-100">
                   <img
-                    src="/public/hero.png"
+                    src={generateImage(car, "29")}
                     alt=""
                     className="h-full object-contain mx-auto"
                   />
                 </div>
                 <div className="flex-1 flex relative w-full h-24 bg-primary-100">
                   <img
-                    src="/public/hero.png"
+                    src={generateImage(car, "33")}
                     alt=""
                     className="h-full object-contain mx-auto"
                   />
                 </div>
                 <div className="flex-1 flex relative w-full h-24 bg-primary-100">
                   <img
-                    src="/public/hero.png"
+                    src={generateImage(car, "13")}
                     alt=""
                     className="h-full object-contain mx-auto"
                   />
@@ -52,11 +60,18 @@ const DetailModel = ({ isOpen, closeModel, car }: DetailProps) => {
               </div>
             </div>
             {/* Araba Bilgileri */}
-            {Object.entries(car).map((item) => console.log(item))}
+            {Object.entries(car).map(([key, value]) => (
+              <div className="flex justify-between">
+                <h4 className="capitalize text-gray">
+                  {key.replace("_", " ")}
+                </h4>
+                <p className="text-black-100 font-semibold">{value}</p>
+              </div>
+            ))}
           </div>
-        </div>
+        </motion.div>
       )}
-    </div>
+    </AnimatePresence>
   );
 };
 

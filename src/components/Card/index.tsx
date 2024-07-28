@@ -4,6 +4,7 @@ import CardInfo from "./CardInfo";
 import { motion } from "framer-motion";
 import DetailModel from "./DetailModel";
 import { CarType } from "../../types";
+import { generateImage } from "../../utils";
 
 type CardProps = {
   car: CarType;
@@ -31,7 +32,7 @@ const Card = ({ car }: CardProps) => {
       <div className="relative w-full h-40 my-3">
         <img
           className="w-full h-full object-contain"
-          src="/public/hero.png"
+          src={generateImage(car)}
           alt=""
         />
       </div>

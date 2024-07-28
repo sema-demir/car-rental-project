@@ -83,3 +83,15 @@ export const colors = [
   "pspc0103",
   "pspc0020",
 ];
+
+// export const colors = [
+//   "pspc0124",
+//   "pspc0034",
+//   "pspc0002sspc0391",
+//   "pspc0145",
+//   "pspc0103sspc0015",
+//   "pspc0197sspc0014",
+//   "pspc0209",
+//   "pspc0103",
+//   "pspc0020",
+// ];
