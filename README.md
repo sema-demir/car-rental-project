@@ -15,3 +15,7 @@ Framer Motion: For animations and interactive UI elements.
 \*Imagin Studio: https://cdn.imagin.studio/getimage
 
 \*API:https://rapidapi.com/apininjas/api/cars-by-api-ninjas
+
+<h3>Screenshot</h3>
+
+![](cargif.gif)
